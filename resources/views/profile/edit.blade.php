@@ -1,29 +1,64 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
+        <h2 class="h4 fw-bold text-primary mb-0">
+            <i class="fa-solid fa-user-circle me-2"></i> {{ __('Perfil de Usuario') }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
+    <div class="container py-5">
+
+        <div class="row g-4">
+            {{-- Información personal --}}
+            <div class="col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white fw-bold">
+                        <i class="fa-solid fa-id-card me-2"></i> Información Personal
+                    </div>
+                    <div class="card-body">
+                        @include('profile.partials.update-profile-information-form')
+                    </div>
                 </div>
             </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
+            {{-- Actualizar contraseña --}}
+            <div class="col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-secondary text-white fw-bold">
+                        <i class="fa-solid fa-key me-2"></i> Actualizar Contraseña
+                    </div>
+                    <div class="card-body">
+                        @include('profile.partials.update-password-form')
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div class="row g-4 mt-3">
+            {{-- Preferencias de usuario (ejemplo opcional) --}}
+{{-- Preferencias de usuario --}}
+<div class="col-lg-6">
+    <div class="card shadow-sm">
+        <div class="card-header bg-info text-white fw-bold">
+            <i class="fa-solid fa-gear me-2"></i> Preferencias
+        </div>
+        <div class="card-body">
+            @include('profile.partials.preferences-form')
+        </div>
+    </div>
+</div>
+
+            {{-- Eliminar cuenta --}}
+            <div class="col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-danger text-white fw-bold">
+                        <i class="fa-solid fa-trash me-2"></i> Eliminar Cuenta
+                    </div>
+                    <div class="card-body">
+                        @include('profile.partials.delete-user-form')
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </x-app-layout>

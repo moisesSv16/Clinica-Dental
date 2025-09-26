@@ -1,36 +1,34 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ config('app.name', 'Clínica Dental') }}</title>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    {{-- Cargar Bootstrap y FontAwesome desde Vite --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    {{-- Navbar principal (igual que el público) --}}
+    @include('components.navbar')
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+    {{-- Encabezado del Dashboard --}}
+    @isset($header)
+        <header class="bg-white shadow-sm">
+            <div class="container py-3">
+                {{ $header }}
+            </div>
+        </header>
+    @endisset
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
+    {{-- Contenido principal --}}
+    <main class="flex-fill py-4">
+        {{ $slot }}
+    </main>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-    </body>
+    {{-- Footer principal --}}
+    @include('components.footer')
+
+</body>
 </html>
