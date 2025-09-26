@@ -1,0 +1,187 @@
+│   estructura_resources.txt
+│
+├───css
+│       app.css
+│
+├───js
+│       app.js
+│       bootstrap.js
+│
+└───views
+    │   dashboard.blade.php
+    │   welcome.blade.php
+    │
+    ├───admin
+    │   ├───citas
+    │   │       calendario.blade.php
+    │   │       index.blade.php
+    │   │       show.blade.php
+    │   │
+    │   ├───consultorios
+    │   │       create.blade.php
+    │   │       edit.blade.php
+    │   │       index.blade.php
+    │   │       show.blade.php
+    │   │
+    │   ├───doctores
+    │   │       create.blade.php
+    │   │       desactivados.blade.php
+    │   │       edit.blade.php
+    │   │       index.blade.php
+    │   │       show.blade.php
+    │   │       vacaciones.blade.php
+    │   │
+    │   ├───especialidades
+    │   │       create.blade.php
+    │   │       edit.blade.php
+    │   │       index.blade.php
+    │   │       show.blade.php
+    │   │
+    │   ├───facturas
+    │   │       index.blade.php
+    │   │       pagos.blade.php
+    │   │       show.blade.php
+    │   │
+    │   ├───insumos
+    │   │       create.blade.php
+    │   │       edit.blade.php
+    │   │       index.blade.php
+    │   │       show.blade.php
+    │   │
+    │   ├───logs
+    │   │       index.blade.php
+    │   │
+    │   ├───pacientes
+    │   │       create.blade.php
+    │   │       edit.blade.php
+    │   │       index.blade.php
+    │   │       show.blade.php
+    │   │
+    │   ├───reportes
+    │   │       citas.blade.php
+    │   │       index.blade.php
+    │   │       ingresos.blade.php
+    │   │       pacientes.blade.php
+    │   │
+    │   ├───sucursales
+    │   │       create.blade.php
+    │   │       edit.blade.php
+    │   │       index.blade.php
+    │   │       show.blade.php
+    │   │
+    │   ├───tratamientos
+    │   │       create.blade.php
+    │   │       edit.blade.php
+    │   │       index.blade.php
+    │   │       show.blade.php
+    │   │
+    │   ├───usuarios
+    │   │       create.blade.php
+    │   │       edit.blade.php
+    │   │       index.blade.php
+    │   │       show.blade.php
+    │   │
+    │   └───vacaciones
+    │           historial.blade.php
+    │           index.blade.php
+    │
+    ├───auth
+    │       confirm-password.blade.php
+    │       forgot-password.blade.php
+    │       login.blade.php
+    │       register.blade.php
+    │       reset-password.blade.php
+    │       verify-email.blade.php
+    │
+    ├───components
+    │       application-logo.blade.php
+    │       auth-session-status.blade.php
+    │       danger-button.blade.php
+    │       dropdown-link.blade.php
+    │       dropdown.blade.php
+    │       input-error.blade.php
+    │       input-label.blade.php
+    │       modal.blade.php
+    │       nav-link.blade.php
+    │       primary-button.blade.php
+    │       responsive-nav-link.blade.php
+    │       secondary-button.blade.php
+    │       text-input.blade.php
+    │
+    ├───doctor
+    │   ├───archivos
+    │   │       index.blade.php
+    │   │
+    │   ├───citas
+    │   │       index.blade.php
+    │   │       show.blade.php
+    │   │
+    │   ├───historial
+    │   │       index.blade.php
+    │   │
+    │   ├───pacientes
+    │   │       show.blade.php
+    │   │
+    │   └───vacaciones
+    │           historial.blade.php
+    │           index.blade.php
+    │
+    ├───layouts
+    │       app.blade.php
+    │       guest.blade.php
+    │       navigation.blade.php
+    │
+    ├───paciente
+    │   ├───archivos
+    │   │       index.blade.php
+    │   │
+    │   ├───citas
+    │   │       create.blade.php
+    │   │       index.blade.php
+    │   │       show.blade.php
+    │   │
+    │   ├───facturas
+    │   │       index.blade.php
+    │   │       show.blade.php
+    │   │
+    │   └───historial
+    │           index.blade.php
+    │
+    ├───profile
+    │   │   edit.blade.php
+    │   │
+    │   └───partials
+    │           delete-user-form.blade.php
+    │           update-password-form.blade.php
+    │           update-profile-information-form.blade.php
+    │
+    ├───public
+    │   │   about.blade.php
+    │   │   contact.blade.php
+    │   │   faq.blade.php
+    │   │   home.blade.php
+    │   │   team.blade.php
+    │   │
+    │   └───services
+    │           endodoncia.blade.php
+    │           estetica.blade.php
+    │           implantes.blade.php
+    │           index.blade.php
+    │           limpieza.blade.php
+    │           ortodoncia.blade.php
+    │
+    └───recepcion
+        ├───citas
+        │       create.blade.php
+        │       index.blade.php
+        │       show.blade.php
+        │
+        ├───doctores
+        │       index.blade.php
+        │
+        └───pacientes
+                create.blade.php
+                edit.blade.php
+                index.blade.php
+                show.blade.php
+
