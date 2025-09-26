@@ -1,0 +1,132 @@
+Resumen de Tablas – Sistema Clínica Dental
+
+ 1. users (Usuarios)
+
+Objetivo:
+Gestionar los accesos al sistema (administradores, doctores, pacientes, recepcionistas).
+Permite controlar roles, autenticación y estados de usuario.
+
+ 2. specialties (Especialidades)
+
+Objetivo:
+Catálogo de especialidades dentales (ej. ortodoncia, periodoncia, endodoncia).
+Permite asignar especialidad a los doctores y mantener un catálogo organizado.
+
+ 3. doctors (Doctores)
+
+Objetivo:
+Perfil de cada doctor, con información personal, profesional y su relación con `users` y `specialties`.
+Sirve para gestionar disponibilidad, historial y datos administrativos de los dentistas.
+
+ 4. patients (Pacientes)
+
+Objetivo:
+Perfil de pacientes, con datos personales, médicos y de contacto.
+Permite registrar antecedentes médicos y vincularlos con usuarios (`users`) si requieren acceso.
+
+ 5. treatments (Tratamientos)
+
+Objetivo:
+Catálogo de tratamientos y servicios dentales con sus costos y duración.
+Sirve para generar facturación y asignar procedimientos a consultas.
+
+ 6. branches (Sucursales)
+
+Objetivo:
+Registrar las diferentes sucursales de la clínica dental.
+Cada sede puede tener varios consultorios y su propia información de contacto.
+
+ 7. consulting_rooms (Consultorios)
+
+Objetivo:
+Definir los consultorios físicos dentro de una sucursal.
+Permite organizar la atención de pacientes y asignar doctores a espacios específicos.
+
+ 8. consulting_room_doctor (Doctores en Consultorios)
+
+Objetivo:
+Tabla pivote para asignar doctores a consultorios.
+Permite establecer horarios de trabajo y controlar disponibilidad en cada sede.
+
+ 9. appointments (Citas)
+
+Objetivo:
+Gestionar las citas entre doctores y pacientes.
+Incluye fecha, hora, motivo, estado y consultorio en el que será atendido el paciente.
+
+ 10. medical_records (Historial Médico)
+
+Objetivo:
+Registrar la información clínica de cada consulta: diagnóstico, tratamientos aplicados, prescripción y observaciones.
+Forma parte del expediente médico del paciente.
+
+ 11. invoices (Facturas)
+
+Objetivo:
+Generar facturas por tratamientos realizados a los pacientes.
+Contiene montos totales, estado de pago y relación con pacientes y tratamientos.
+
+ 12. invoice_payments (Pagos de Facturas)
+
+Objetivo:
+Registrar pagos parciales o abonos de una factura.
+Permite controlar saldos pendientes y manejar diferentes métodos de pago.
+
+ 13. supplies (Insumos)
+
+Objetivo:
+Gestionar el inventario de insumos y materiales médicos de la clínica.
+Incluye cantidad disponible, unidad de medida, stock mínimo y fecha de caducidad.
+
+ 14. supply_movements (Movimientos de Insumos)
+
+Objetivo:
+Registrar entradas, salidas y ajustes en el inventario de insumos.
+Permite mantener trazabilidad de materiales y saber quién realizó cada movimiento.
+
+ 15. medical_files (Archivos Médicos)
+
+Objetivo:
+Almacenar archivos clínicos asociados a pacientes y consultas (radiografías, estudios, imágenes, documentos).
+Sirve para complementar el expediente médico con información visual y documental.
+
+ 16. doctor_vacation_balances (Saldos de Vacaciones de Doctores)
+
+Objetivo:
+Controlar el saldo de días de vacaciones asignados a cada doctor por año.
+Permite calcular días tomados, disponibles y administrar las políticas de descanso.
+
+ 17. doctor_vacations (Vacaciones de Doctores)
+
+Objetivo:
+Registrar solicitudes de vacaciones de los doctores.
+Permite gestionar estados (`pendiente`, `aprobado`, `suspendido`, `finalizado`), así como días solicitados, tomados y devueltos.
+
+ 18. activity_logs (Bitácora de Actividades)
+
+Objetivo:
+Registrar acciones importantes realizadas en el sistema.
+Mejorar la seguridad y trazabilidad (saber quién creó, modificó o eliminó algo).
+Útil para auditorías internas y control administrativo.
+
+
+ Orden de Migraciones (para evitar errores de dependencias)
+
+1. `users` (Usuarios)
+2. `specialties` (Especialidades)
+3. `doctors` (Doctores)
+4. `patients` (Pacientes)
+5. `treatments` (Tratamientos)
+6. `branches` (Sucursales)
+7. `consulting_rooms` (Consultorios)
+8. `consulting_room_doctor` (Doctores en Consultorios)
+9. `appointments` (Citas)
+10. `medical_records` (Historial Médico)
+11. `invoices` (Facturas)
+12. `invoice_payments` (Pagos de Facturas)
+13. `supplies` (Insumos)
+14. `supply_movements` (Movimientos de Insumos)
+15. `medical_files` (Archivos Médicos)
+16. `doctor_vacation_balances` (Saldos de Vacaciones de Doctores)
+17. `doctor_vacations` (Vacaciones de Doctores)
+18. `activity_logs` (Bitácora de Actividades)

@@ -1,0 +1,212 @@
+// Sistema de Clínica Dental
+// Definición de tablas y relaciones en DBML
+
+Table users {
+  id integer [pk]
+  name varchar
+  email varchar [unique]
+  password varchar
+  role varchar
+  profile_photo varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table specialties {
+  id integer [pk]
+  name varchar
+  description text
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table doctors {
+  id integer [pk]
+  user_id integer [ref: > users.id]
+  specialty_id integer [ref: > specialties.id]
+  first_name varchar
+  last_name_p varchar
+  last_name_m varchar
+  employee_number varchar
+  phone varchar
+  license_number varchar
+  experience_years integer
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table patients {
+  id integer [pk]
+  user_id integer [ref: > users.id, note: 'Opcional, si el paciente tiene acceso']
+  first_name varchar
+  last_name_p varchar
+  last_name_m varchar
+  birth_date date
+  phone varchar
+  address varchar
+  allergies text
+  blood_type varchar
+  emergency_contact varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table treatments {
+  id integer [pk]
+  name varchar
+  description text
+  price decimal
+  duration_minutes integer
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table branches {
+  id integer [pk]
+  name varchar
+  address varchar
+  phone varchar
+  email varchar
+  status varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table consulting_rooms {
+  id integer [pk]
+  branch_id integer [ref: > branches.id]
+  name varchar
+  description varchar
+  status varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table consulting_room_doctor {
+  id integer [pk]
+  doctor_id integer [ref: > doctors.id]
+  consulting_room_id integer [ref: > consulting_rooms.id]
+  work_schedule json
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table appointments {
+  id integer [pk]
+  patient_id integer [ref: > patients.id]
+  doctor_id integer [ref: > doctors.id]
+  consulting_room_id integer [ref: > consulting_rooms.id]
+  appointment_date timestamp
+  reason text
+  status varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table medical_records {
+  id integer [pk]
+  patient_id integer [ref: > patients.id]
+  doctor_id integer [ref: > doctors.id]
+  diagnosis text
+  treatment text
+  prescription text
+  notes text
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table invoices {
+  id integer [pk]
+  patient_id integer [ref: > patients.id]
+  treatment_id integer [ref: > treatments.id]
+  amount decimal
+  status varchar
+  payment_method varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table invoice_payments {
+  id integer [pk]
+  invoice_id integer [ref: > invoices.id]
+  amount decimal
+  payment_method varchar
+  payment_date date
+  notes text
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table supplies {
+  id integer [pk]
+  name varchar
+  category varchar
+  quantity integer
+  unit varchar
+  min_stock integer
+  expiration_date date
+  status varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table supply_movements {
+  id integer [pk]
+  supply_id integer [ref: > supplies.id]
+  movement_type varchar
+  quantity integer
+  reason varchar
+  performed_by integer [ref: > users.id]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table medical_files {
+  id integer [pk]
+  patient_id integer [ref: > patients.id]
+  medical_record_id integer [ref: > medical_records.id]
+  uploaded_by integer [ref: > users.id]
+  file_path varchar
+  file_type varchar
+  description varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table doctor_vacation_balances {
+  id integer [pk]
+  doctor_id integer [ref: > doctors.id]
+  year integer
+  days_total integer
+  days_taken integer
+  days_available integer
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table doctor_vacations {
+  id integer [pk]
+  doctor_id integer [ref: > doctors.id]
+  start_date date
+  end_date date
+  days_requested integer
+  days_taken integer
+  days_returned integer
+  reason varchar
+  status varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table activity_logs {
+  id integer [pk]
+  user_id integer [ref: > users.id]
+  action varchar
+  table_name varchar
+  record_id integer
+  description text
+  ip_address varchar
+  user_agent text
+  created_at timestamp
+  updated_at timestamp
+}
